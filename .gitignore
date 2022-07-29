@@ -1,7 +1,0 @@
-.vscode/
-package-lock.json
-node_modules/
-resources/
-tmp/
-web/
-latest.json
