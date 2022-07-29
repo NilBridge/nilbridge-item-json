@@ -1,5 +1,13 @@
 #!/bin/bash
-echo "https://void.bedrock.dev/resources/$1.zip"
+
+while read line
+do
+    echo "https://void.bedrock.dev/resources/$line.zip"
+    curl https://void.bedrock.dev/resources/$line.zip --output ./tmp/$line.zip
+    unzip -d ./resources/ ./tmp/$line.zip
+done < latest.txt
+
+
 
 #function get_char()
 # {
@@ -25,10 +33,10 @@ echo "https://void.bedrock.dev/resources/$1.zip"
 #  fi
 #}
 
-curl https://void.bedrock.dev/resources/$1.zip --output ./tmp/$1.zip
+
 
 #tar xvf ./tmp/$1.zip -C ./resources/
 
-unzip -d ./resources/ ./tmp/$1.zip
+
 
 #pause "ok"
