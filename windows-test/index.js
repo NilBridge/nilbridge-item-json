@@ -15,7 +15,7 @@ function loadJson(path) {
 if(fs.existsSync('lattest.json')){
     fs.rmSync('latest.json');
 }
-//cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json');
+cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json');
 
 let options = {
     url: 'https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json',
