@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: web
-          path: build
+          path: web
   deploy:
     concurrency: ci-${{ github.ref }}
     needs: [build]
