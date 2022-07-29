@@ -27,7 +27,7 @@ jobs:
     - run: mkdir tmp
     - run: curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json
     - run: node src
-    - run: download.sh
+    - run: ./download.sh
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
