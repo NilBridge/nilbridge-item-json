@@ -37,3 +37,6 @@ function parsePack() {
 
 const webdata = loadJson("latest.json");
 let versions = Object.keys(webdata.pageProps.versions);
+console.log(versions[versions.length - 7]);
+cp.execFileSync('download.sh', [versions[versions.length - 7]]);
+parsePack();

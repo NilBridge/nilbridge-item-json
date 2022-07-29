@@ -1,7 +1,7 @@
 .vscode/
 package-lock.json
 node_modules/
-resources/
+resoures/
 tmp/
 web/
 latest.txt
