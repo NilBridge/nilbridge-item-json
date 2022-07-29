@@ -4,7 +4,7 @@
   "description": "NilBridge提供的MC-JSON-API",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "node windows-test"
   },
   "keywords": [
     "minecarft"
