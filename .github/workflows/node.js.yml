@@ -23,8 +23,12 @@ jobs:
     - uses: actions/checkout@v3
     - run: npm install
     - run: curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json
-    - run: chmod u+x download.sh
     - run: npm test
+    - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
+        uses: actions/upload-artifact@v1
+        with:
+          name: web
+          path: build
   deploy:
     concurrency: ci-${{ github.ref }}
     needs: [build]
