@@ -1,5 +1,3 @@
-#!/bin/bash
-
 cat latest.txt | while read line
 do
     echo "https://void.bedrock.dev/resources/$line.zip"
