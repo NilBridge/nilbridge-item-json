@@ -3,6 +3,7 @@ chcp 65001
 if not exist tmp mkdir tmp
 if not exist resources mkdir resources
 if not exist web mkdir web
+echo mc-item.nilbridge.site >> ./web/CNAME
 
 set version=%1
 
