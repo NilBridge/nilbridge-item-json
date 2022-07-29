@@ -15,7 +15,7 @@ function loadJson(path) {
 if(fs.existsSync('lattest.json')){
     fs.rmSync('latest.json');
 }
-// cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json');
+cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json');
 
 let options = {
     url: 'https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json',
@@ -38,3 +38,6 @@ function parsePack() {
 const webdata = loadJson("latest.json");
 let versions = Object.keys(webdata.pageProps.versions);
 console.log(versions[versions.length - 7]);
+cp.execFileSync('download.bat', [versions[versions.length - 7]]);
+parsePack();
+

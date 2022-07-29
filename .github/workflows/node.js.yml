@@ -27,7 +27,7 @@ jobs:
         run: |
           npm i
           curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json
-          npm test
+          npm build
           echo mc-item.nilbridge.github.io >> ./web/CNAME
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1

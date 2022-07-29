@@ -2,9 +2,9 @@
   "name": "nilbridge-item-json",
   "version": "1.0.0",
   "description": "NilBridge提供的MC-JSON-API",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "node windows-test"
+    "build": "node src"
   },
   "keywords": [
     "minecarft"
