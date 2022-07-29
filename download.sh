@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while read line
+cat latest.txt | while read line
 do
     echo "https://void.bedrock.dev/resources/$line.zip"
     curl https://void.bedrock.dev/resources/$line.zip --output ./tmp/$line.zip
