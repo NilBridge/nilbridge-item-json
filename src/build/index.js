@@ -10,42 +10,50 @@ function loadJson(path) {
     }
 }
 
-function mkDir(path){
-    fs.mkdirSync('./web/'+path,{recursive:true});
+function mkDir(path) {
+    fs.mkdirSync('./web/' + path, { recursive: true });
 }
 
-function getTextues(version){
+function getTextues(version) {
     let TEXTURE = loadJson(ITEMTEXTUES_PATH);
-    fs.writeFileSync('./web/'+version+'/textures.json',JSON.stringify(TEXTURE.texture_data,null,4));
+    fs.writeFileSync('./web/' + version + '/textures.json', JSON.stringify(TEXTURE.texture_data, null, 4));
 }
 
 
-function getText(version){
-    mkDir(version+'\\texts');
-    fs.readdirSync('./resources/texts/').forEach(v=>{
-        if(v.endsWith('.lang')==false)return;
-        var rl = readline.createInterface({
-            input : fs.createReadStream(`./resources/texts/${v}`,{encoding:"utf8"})
-        });
-        let data = {};
-        rl.on('line',(input)=>{
-            if(input.startsWith("#")==false){
-                input = input.replace("#",'').trim();
-                let sp = input.split("=");
-                //console.log(sp[0],sp[1]);
-                if(sp[0] && sp[1]){
-                    data[sp[0]] = sp[1];
+function getText(version) {
+    mkDir(version + '\\texts');
+    fs.readdirSync('./resources/texts/').forEach(v => {
+        if (v.endsWith('.lang')) {
+            console.log('reading', `./resources/texts/${v}`);
+            var rl = readline.createInterface({
+                input: fs.createReadStream(`./resources/texts/${v}`, { encoding: "utf8" })
+            });
+            let tmp_data = {};
+            rl.on('line', (input) => {
+                if (input.startsWith("#") == false) {
+                    input = input.replace("#", '').trim();
+                    let sp = input.split("=");
+                    //console.log(sp[0],sp[1]);
+                    if (sp[0] && sp[1]) {
+                        //console.log('set',sp[0],'>>',sp[1]);
+                        tmp_data[sp[0]] = sp[1];
+                    }
                 }
-            }
-        });
-        console.log('write',v);
-        fs.writeFile(`./web/${version}/texts/${v.split('.')[0]}.json`,JSON.stringify(data,null,4),(err)=>{
-            console.log(err);
-        });
+            });
+            rl.on('close', () => {
+                console.log('write', v);
+                //console.log(tmp_data);
+                fs.writeFileSync(`./web/${version}/texts/${v.split('.')[0]}.json`, JSON.stringify(tmp_data, null, 4), (err) => {
+                    console.log(err);
+                });
+            });
+
+        }
     });
 }
 
-module.exports = (ver)=>{
+module.exports = (ver) => {
+    console.log('start build');
     getText(ver);
     getTextues(ver);
 }

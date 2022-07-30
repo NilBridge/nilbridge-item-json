@@ -28,4 +28,6 @@ console.log('latest >>',latest_v);
 
 cp.execFileSync('.\\src\\download.bat', [latest_v]);
 
+console.log('download donw ,start build');
+
 build(latest_v);
