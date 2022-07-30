@@ -1,5 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
+const { execSync } = require('child_process');
 const ITEMTEXTUES_PATH = '.\\resources\\textures\\item_texture.json'
 
 function loadJson(path) {
@@ -16,6 +17,7 @@ function mkDir(path) {
 
 function getTextues(version) {
     let TEXTURE = loadJson(ITEMTEXTUES_PATH);
+    
     fs.writeFileSync('./web/' + version + '/textures.json', JSON.stringify(TEXTURE.texture_data, null, 4));
 }
 
@@ -60,6 +62,7 @@ function getText(version) {
 
 module.exports = (ver) => {
     console.log('start build');
+    execSync('xcopy ./resources/textures ./'+version+'/textures /e /i /Q /y');
     getText(ver);
     getTextues(ver);
 }

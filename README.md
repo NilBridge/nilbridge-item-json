@@ -93,6 +93,7 @@ NilBridge提供的开放MC查询api
 *注：因为篇幅限制只展示部分*
 
 ``` json
+{
     "tile.warped_roots.warpedRoots.name": "诡异菌根",
     "tile.red_flower.allium.name": "绒球葱",
     "tile.red_flower.blueOrchid.name": "兰花",
@@ -111,6 +112,7 @@ NilBridge提供的开放MC查询api
     "tile.glass.name": "玻璃",
     "tile.golden_rail.name": "动力铁轨",
     "tile.grass.name": "草方块"
+}
 ```
 
 ### 使用jsdelivr加速
@@ -118,3 +120,5 @@ NilBridge提供的开放MC查询api
 ```
 [GET] https://fastly.jsdelivr.net/gh/NilBridge/nilbridge-item-json@gh-pages/{version}/{id}/{你要访问的内容...}
 ```
+
+使用id缓存就是为了跳过jsdelivr的缓存
