@@ -22,8 +22,10 @@ function getTextues(version) {
 
 function getText(version) {
     mkDir(version + '\\texts');
+    fs.copyFileSync('./ressources/texts/languages.json',`./web/${version}/texts/languages.json`);
     fs.readdirSync('./resources/texts/').forEach(v => {
         if (v.endsWith('.lang')) {
+            let language = v.split('.')[0];
             console.log('reading', `./resources/texts/${v}`);
             var rl = readline.createInterface({
                 input: fs.createReadStream(`./resources/texts/${v}`, { encoding: "utf8" })
@@ -43,11 +45,16 @@ function getText(version) {
             rl.on('close', () => {
                 console.log('write', v);
                 //console.log(tmp_data);
-                fs.writeFileSync(`./web/${version}/texts/${v.split('.')[0]}.json`, JSON.stringify(tmp_data, null, 4), (err) => {
-                    console.log(err);
+                all_language.push(v.split('.')[0]);
+                fs.writeFileSync(`./web/${version}/texts/${language}.json`, JSON.stringify(tmp_data, null, 4), (err) => {
+                    if(err){
+                        console.log('error when write texts/'+language+'.json');
+                        console.log(err);
+                    }else{
+                        console.log(`write texts/${language}.json done`)
+                    }
                 });
             });
-
         }
     });
 }
