@@ -51,9 +51,13 @@ cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.
 */
 
 const webdata = loadJson("latest.json");
+
 let versions = webdata.pageProps.versions;
-let latest_v = latest(versions);
+
+let latest_v = latest(versions);  //取最新版本
+
 let path_id = randomUUID();
+
 console.log('latest >>', latest_v);
 
 cp.execFileSync('.\\src\\download.bat', [latest_v]);

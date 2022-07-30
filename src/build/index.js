@@ -37,16 +37,13 @@ function getText(version) {
                 if (input.startsWith("#") == false) {
                     input = input.replace("#", '').trim();
                     let sp = input.split("=");
-                    //console.log(sp[0],sp[1]);
                     if (sp[0] && sp[1]) {
-                        //console.log('set',sp[0],'>>',sp[1]);
                         tmp_data[sp[0]] = sp[1];
                     }
                 }
             });
             rl.on('close', () => {
                 console.log('write', v);
-                //console.log(tmp_data);
                 fs.writeFileSync(`./web/${version}/texts/${language}.json`, JSON.stringify(tmp_data, null, 4), (err) => {
                     if(err){
                         console.log('error when write texts/'+language+'.json');
@@ -64,5 +61,5 @@ module.exports = (ver) => {
     console.log('start build');
     getText(ver);
     getTextues(ver);
-    execSync('xcopy /e /i /Q /y "./resources/textures" "./web/'+ver+'/textures"');
+    //execSync('xcopy /e /i /Q /y "./resources/textures" "./web/'+ver+'/textures"');
 }

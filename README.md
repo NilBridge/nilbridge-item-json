@@ -118,7 +118,7 @@ NilBridge提供的开放MC查询api
 ### 使用jsdelivr加速
 
 ```
-[GET] https://fastly.jsdelivr.net/gh/NilBridge/nilbridge-item-json@gh-pages/{version}/{id}/{你要访问的内容...}
+[GET] https://gcore.jsdelivr.net/gh/NilBridge/nilbridge-item-json@gh-pages/{version}/{id}/{你要访问的内容...}
 ```
 
 使用id缓存就是为了跳过jsdelivr的缓存
