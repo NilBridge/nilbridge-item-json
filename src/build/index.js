@@ -59,7 +59,10 @@ function getText(version) {
 
 module.exports = (ver) => {
     console.log('start build');
+    // 获取lang文件
     getText(ver);
+    // 获取textures文件
     getTextues(ver);
-    //execSync('xcopy /e /i /Q /y "./resources/textures" "./web/'+ver+'/textures"');
+    // 把原版textures文件夹与云端同步
+    execSync('xcopy /e /i /Q /y "./resources/textures" "./web/'+ver+'/textures"');
 }
