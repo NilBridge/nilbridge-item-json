@@ -56,9 +56,9 @@ let latest_v = latest(versions);
 let path_id = randomUUID();
 console.log('latest >>', latest_v);
 
-fs.writeFileSync("./web/build.json", JSON.stringify({ build_time: transformDate() , version : latest_v , id:path_id}));
-
 cp.execFileSync('.\\src\\download.bat', [latest_v]);
+
+fs.writeFileSync("./web/build.json", JSON.stringify({ build_time: transformDate() , version : latest_v , id:path_id}));
 
 console.log('download donw ,start build');
 
