@@ -45,7 +45,6 @@ function getText(version) {
             rl.on('close', () => {
                 console.log('write', v);
                 //console.log(tmp_data);
-                all_language.push(v.split('.')[0]);
                 fs.writeFileSync(`./web/${version}/texts/${language}.json`, JSON.stringify(tmp_data, null, 4), (err) => {
                     if(err){
                         console.log('error when write texts/'+language+'.json');
