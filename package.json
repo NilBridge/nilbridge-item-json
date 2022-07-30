@@ -4,7 +4,9 @@
   "description": "NilBridge提供的MC-JSON-API",
   "main": "src/index.js",
   "scripts": {
-    "build": "node src"
+    "build": "node src/build",
+    "download": "node src/download",
+    "test": "curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json && node src/download"
   },
   "keywords": [
     "minecarft"

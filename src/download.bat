@@ -1,5 +1,7 @@
 chcp 65001
 
+echo %cwd%
+
 if not exist tmp mkdir tmp
 if not exist resources mkdir resources
 if not exist web mkdir web

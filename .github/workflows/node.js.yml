@@ -27,7 +27,7 @@ jobs:
         run: |
           npm i
           curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json
-          npm run build
+          npm run download
       - name: Upload Artifacts 🔺
         uses: actions/upload-artifact@v1
         with:
