@@ -32,15 +32,6 @@ NilBridge提供的开放MC查询api
     "acacia_door": {
         "textures": "textures/items/door_acacia"
     },
-    "amethyst_shard": {
-        "textures": "textures/items/amethyst_shard"
-    },
-    "apple": {
-        "textures": "textures/items/apple"
-    },
-    "apple_golden": {
-        "textures": "textures/items/apple_golden"
-    },
     "armor_stand": {
         "textures": "textures/items/armor_stand"
     },
@@ -95,9 +86,35 @@ NilBridge提供的开放MC查询api
 [GET] mc-item.nilbridge.site/{version}/{id}/texts/{language}.json
 ```
 
-`{language}`需要替换成语言名称
+`{language}`需要替换成语言名称，也就是上一个API里面展示的
 
+响应格式
 
+*注：因为篇幅限制只展示部分*
+
+``` json
+    "tile.warped_roots.warpedRoots.name": "诡异菌根",
+    "tile.red_flower.allium.name": "绒球葱",
+    "tile.red_flower.blueOrchid.name": "兰花",
+    "tile.red_flower.cornflower.name": "矢车菊",
+    "tile.red_flower.houstonia.name": "茜草花",
+    "tile.red_flower.name": "花",
+    "tile.red_flower.lilyOfTheValley.name": "铃兰",
+    "tile.red_flower.oxeyeDaisy.name": "滨菊",
+    "tile.red_flower.poppy.name": "玫瑰",
+    "tile.red_flower.tulipOrange.name": "橙色郁金香",
+    "tile.red_flower.tulipPink.name": "粉红色郁金香",
+    "tile.red_flower.tulipRed.name": "红色郁金香",
+    "tile.red_flower.tulipWhite.name": "白色郁金香",
+    "tile.wither_rose.name": "凋零玫瑰",
+    "tile.furnace.name": "熔炉",
+    "tile.glass.name": "玻璃",
+    "tile.golden_rail.name": "动力铁轨",
+    "tile.grass.name": "草方块"
+```
 
 ### 使用jsdelivr加速
 
+```
+[GET] https://fastly.jsdelivr.net/gh/NilBridge/nilbridge-item-json@gh-pages/{version}/{id}/{你要访问的内容...}
+```
