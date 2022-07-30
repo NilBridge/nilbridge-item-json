@@ -62,7 +62,7 @@ function getText(version) {
 
 module.exports = (ver) => {
     console.log('start build');
-    execSync('xcopy ./resources/textures ./'+ver+'/textures /e /i /Q /y');
+    execSync('xcopy ./resources/textures ./web/'+ver+'/textures /e /i /Q /y');
     getText(ver);
     getTextues(ver);
 }
