@@ -22,7 +22,7 @@ function getTextues(version) {
 
 function getText(version) {
     mkDir(version + '\\texts');
-    fs.copyFileSync('./ressources/texts/languages.json',`./web/${version}/texts/languages.json`);
+    fs.copyFileSync('./resources/texts/languages.json',`./web/${version}/texts/languages.json`);
     fs.readdirSync('./resources/texts/').forEach(v => {
         if (v.endsWith('.lang')) {
             let language = v.split('.')[0];
