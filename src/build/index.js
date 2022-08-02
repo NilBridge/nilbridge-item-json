@@ -17,7 +17,7 @@ function mkDir(path) {
 
 function getTextues(version) {
     let TEXTURE = loadJson(ITEMTEXTUES_PATH);
-    
+    fs.writeFileSync('./web/' + version + '/textures_list.json', JSON.stringify(Object.keys(TEXTURE.texture_data), null, 4));
     fs.writeFileSync('./web/' + version + '/textures.json', JSON.stringify(TEXTURE.texture_data, null, 4));
 }
 
