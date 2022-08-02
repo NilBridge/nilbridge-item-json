@@ -1,7 +1,8 @@
 const readline = require('readline');
 const fs = require('fs');
 const { execSync } = require('child_process');
-const ITEMTEXTUES_PATH = '.\\resources\\textures\\item_texture.json'
+const ITEMTEXTURES_PATH = '.\\resources\\textures\\item_texture.json'
+const BLOCKTEXTURES_PATH = '.\\resources\\textures\\terrain_texture.json'
 
 function loadJson(path) {
     try {
@@ -16,9 +17,10 @@ function mkDir(path) {
 }
 
 function getTextues(version) {
-    let TEXTURE = loadJson(ITEMTEXTUES_PATH);
-    fs.writeFileSync('./web/' + version + '/textures_list.json', JSON.stringify(Object.keys(TEXTURE.texture_data), null, 4));
-    fs.writeFileSync('./web/' + version + '/textures.json', JSON.stringify(TEXTURE.texture_data, null, 4));
+    let TEXTURE_ITEMS = loadJson(ITEMTEXTURES_PATH);
+    let TEXTURE_TERRAIN = loadJson(BLOCKTEXTURES_PATH)
+    fs.writeFileSync('./web/' + version + '/textures_terrain.json', JSON.stringify(TEXTURE_TERRAIN.texture_data, null, 4));
+    fs.writeFileSync('./web/' + version + '/textures_item.json', JSON.stringify(TEXTURE_ITEMS.texture_data, null, 4));
 }
 
 
