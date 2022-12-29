@@ -59,7 +59,7 @@ let latest_v = latest(versions);  //取最新版本
 */
 
 // 需要手动指定新版本
-let latest_v = "";
+let latest_v = "1.19.40.23";
 
 let path_id = randomUUID();
 
