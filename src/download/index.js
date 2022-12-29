@@ -48,13 +48,18 @@ if(fs.existsSync('lattest.json')){
     fs.rmSync('latest.json');
 }
 cp.execSync('curl https://bedrock.dev/_next/data/6P4hX70_3vHNSlt_WlpsI/zh/packs.json --output latest.json');
-*/
+
 
 const webdata = loadJson("latest.json");
 
 let versions = webdata.pageProps.versions;
 
 let latest_v = latest(versions);  //取最新版本
+
+*/
+
+// 需要手动指定新版本
+let latest_v = "";
 
 let path_id = randomUUID();
 
